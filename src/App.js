@@ -3,6 +3,8 @@ import './App.css';
 
 function App() {
   return (
+    // the following is JSX, HTML looklike
+    //"babel" will take this JSX syntax (compile this code) and convert it into code that browsers understand
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
