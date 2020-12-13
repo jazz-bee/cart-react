@@ -12,9 +12,7 @@ class Counter extends Component {
     return classes;
   }
 
-  getCount = ()=> {
-    return this.state.count === 0 ? "zero" : this.state.count ;
-  }
+  getCount = () => (this.state.count === 0 ? "zero" : this.state.count)
 
   render(){
     return (
