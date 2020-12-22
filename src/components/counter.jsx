@@ -2,25 +2,25 @@ import React, {Component} from 'react';
 
 class Counter extends Component {
   state={
-    count: 1,
+    value: this.props.value, //gets initialized from counters.jsx
     tags: ['tag1','tag2','tag3']
   };
 
   getBadgeClasses() {
     let classes = "badge m-2 badge-";
-    classes += this.state.count === 0 ? "warning" : "primary";
+    classes += this.state.value === 0 ? "warning" : "primary";
     return classes;
   }
  
-  getCount = () => (this.state.count === 0 ? "zero" : this.state.count)
+  getCount = () => (this.state.value === 0 ? "zero" : this.state.value)
 
   handleIncrement = () => {
     //console.log("clicked");
-    this.setState({count: this.state.count += 1}) 
-
-  }
+    this.setState({value: this.state.value + 1}) ;
+  };
 
   render(){
+    console.log('props', this.props);
     return (
       <div>
         <span className={this.getBadgeClasses()}>{this.getCount()}</span>
