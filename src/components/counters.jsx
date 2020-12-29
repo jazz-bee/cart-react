@@ -12,12 +12,18 @@ class Counters extends Component {
      handleDelete = (counterId) => {
         console.log("Event handler called", counterId);
          const counters = this.state.counters.filter(c => c.id !== counterId);
-         this.setState({ counters }); //counters: counters is not necessary 
+         this.setState({ counters }); //"counters: counters" is not necessary 
+         console.log(this.state.counters);
     
     };
 
     handleIncrement = (counter) => { 
-        console.log(counter); 
+        //console.log(this.state.counters); 
+        const counters = [...this.state.counters];
+        const index = counters.indexOf(counter);
+        counters[index] = {... counter}; //the counter object we recieved as an argument
+        counters[index].value++;        // that way we dont modify the original object in the array
+        this.setState({counters});
     };
 
     render() { 
