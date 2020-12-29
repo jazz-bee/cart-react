@@ -1,30 +1,22 @@
 import React, {Component} from 'react';
 
 class Counter extends Component {
-  state={
-    value: this.props.counter.value, //gets initialized from counters.jsx
-    tags: ['tag1','tag2','tag3']
-  };
+  //no state as its a controlled component
 
   getBadgeClasses() {
     let classes = "badge m-2 badge-";
-    classes += this.state.value === 0 ? "warning" : "primary";
+    classes += this.props.counter.value === 0 ? "warning" : "primary";
     return classes;
   }
  
-  getCount = () => (this.state.value === 0 ? "zero" : this.state.value)
-
-  handleIncrement = () => {
-    //console.log("clicked");
-    this.setState({value: this.state.value + 1}) ;
-  };
+  formatCount = () => (this.props.counter.value === 0 ? "zero" : this.props.counter.value)
 
   render(){
-    console.log('props', this.props);
+    //console.log('props', this.props);
     return (
       <div>
-        <span className={this.getBadgeClasses()}>{this.getCount()}</span>
-        <button onClick={this.handleIncrement} className="btn btn-secondary btn-sm">Increment</button>
+        <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
+        <button onClick={()=>this.props.onIncrement(this.props.counter)} className="btn btn-secondary btn-sm">Increment</button>
         <button onClick={() => this.props.onDelete(this.props.counter.id)} className="btn btn-danger btn-sm m-2">Delete</button>
       </div>
     )

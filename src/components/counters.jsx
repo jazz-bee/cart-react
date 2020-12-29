@@ -10,10 +10,14 @@ class Counters extends Component {
         ]
      };
      handleDelete = (counterId) => {
-        //console.log("Event handler called", counterId);
+        console.log("Event handler called", counterId);
          const counters = this.state.counters.filter(c => c.id !== counterId);
          this.setState({ counters }); //counters: counters is not necessary 
     
+    };
+
+    handleIncrement = (counter) => { 
+        console.log(counter); 
     };
 
     render() { 
@@ -23,9 +27,11 @@ class Counters extends Component {
                 <Counter 
                 key={counter.id} 
                 onDelete={this.handleDelete} 
+                onIncrement={this.handleIncrement}
                 counter = {counter} // we pass the object not the properties one by one
                 /> 
             )}
+            <button className="btn btn-sm" >Reset</button>
         </div> 
         );
     }
