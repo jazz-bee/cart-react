@@ -1,27 +1,13 @@
-import logo from './logo.svg';
+import navBar from './components/navbar'
 import './App.css';
 
-function App() {
-  return (
-    // the following is JSX, HTML looklike
-    //"babel" will take this JSX syntax (compile this code) and convert it into code that browsers understand
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {  }
+  render() { 
+    return (  
+      <NavBar></NavBar>
+    );
+  }
 }
-
+ 
 export default App;
