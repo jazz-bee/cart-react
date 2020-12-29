@@ -42,7 +42,11 @@ handleReset = () => {
       <React.Fragment>
       <NavBar></NavBar>
       <main className="container">
-        <Counters/>
+        <Counters
+        onReset={this.handleReset} 
+        onDelete={this.handleDelete}
+        onIncrement={this.handleIncrement}
+        />
       </main>
       </React.Fragment>
     );
