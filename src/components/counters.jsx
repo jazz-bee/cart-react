@@ -3,7 +3,7 @@ import Counter from './counter';
 class Counters extends Component {
     state = { 
         counters: [
-           {id: 1,  value: 4},
+           {id: 1,  value: 0},
            {id: 2,  value: 0},
            {id: 3,  value: 0},
            {id: 4,  value: 0} 
@@ -26,6 +26,14 @@ class Counters extends Component {
         this.setState({counters});
     };
 
+    handleReset = () => {
+        const counters = this.state.counters.map(c =>{
+            c.value=0;
+            return c;
+        })
+        this.setState(counters);
+
+    };
     render() { 
         return ( 
         <div>
@@ -37,7 +45,7 @@ class Counters extends Component {
                 counter = {counter} // we pass the object not the properties one by one
                 /> 
             )}
-            <button className="btn btn-sm" >Reset</button>
+            <button onClick={() => this.handleReset()} className="btn btn-sm" >Reset</button>
         </div> 
         );
     }
